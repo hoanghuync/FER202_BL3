@@ -11,20 +11,16 @@ const PersonSearch = ({ persons }) => {
     });
 
     return filtered.sort((a, b) => {
-      // Priority 1: isActive (true first)
       if (a.isActive !== b.isActive) {
         return b.isActive ? 1 : -1;
       }
-      // Priority 2: age ascending
       if (a.age !== b.age) {
         return a.age - b.age;
       }
-      // Priority 3: lastName A→Z
       return a.lastName.localeCompare(b.lastName);
     });
   }, [persons, searchTerm]);
-
-  // Statistics using reduce
+  
   const statistics = useMemo(() => {
     return persons.reduce((acc, person) => {
       acc.totalPeople += 1;

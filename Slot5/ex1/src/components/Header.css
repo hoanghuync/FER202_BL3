@@ -1,0 +1,110 @@
+.header-navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2c5530;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: #2c5530;
+  text-decoration: none;
+}
+
+.leaf-icon {
+  color: #28a745;
+  font-size: 1.8rem;
+}
+
+.brand-text {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-link {
+  color: #6c757d !important;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #28a745 !important;
+  background: rgba(40, 167, 69, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  color: #28a745 !important;
+  background: rgba(40, 167, 69, 0.15);
+  font-weight: 600;
+}
+
+.request-form-link {
+  color: #667eea !important;
+  font-weight: 600;
+  border: 2px solid #667eea;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.request-form-link:hover {
+  color: white !important;
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.browse-btn {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.browse-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(135deg, #20c997, #17a2b8);
+}
+
+/* Responsive design */
+@media (max-width: 991px) {
+  .nav-link {
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+  
+  .request-form-link {
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+  
+  .browse-btn {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}

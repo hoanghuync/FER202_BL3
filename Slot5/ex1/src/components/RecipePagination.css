@@ -1,0 +1,107 @@
+.recipe-pagination-section {
+  padding: 2rem 0;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.items-per-page-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.items-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.items-dropdown {
+  min-width: 60px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.pagination-custom {
+  margin: 0;
+  gap: 0.25rem;
+}
+
+.pagination-btn {
+  border: none;
+  background: transparent;
+  color: #6c757d;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  color: #495057;
+  transform: translateY(-1px);
+}
+
+.pagination-btn.active {
+  background: #667eea;
+  color: white;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.pagination-btn:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.pagination-btn.ellipsis {
+  cursor: default;
+  pointer-events: none;
+}
+
+.pagination-btn.ellipsis:hover {
+  background: transparent;
+  transform: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .recipe-pagination-section {
+    padding: 1.5rem 0;
+  }
+  
+  .pagination-controls {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .items-per-page-container {
+    justify-content: center;
+  }
+  
+  .pagination-custom {
+    justify-content: center;
+  }
+  
+  .pagination-info {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
