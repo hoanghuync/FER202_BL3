@@ -187,7 +187,7 @@ function App() {
     setFilteredRecipes(next);
     
     if (next.length === 0) {
-      setAlertMessage('Không tìm thấy công thức nào phù hợp.');
+      setAlertMessage('Recipes Not Found.');
       setShowAlert(true);
     } else {
       setShowAlert(false);
