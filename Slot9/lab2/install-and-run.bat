@@ -1,0 +1,6 @@
+@echo off
+echo Installing dependencies for Movie Explorer...
+npm install
+echo.
+echo Starting the application...
+npm start
