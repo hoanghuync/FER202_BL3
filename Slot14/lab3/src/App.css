@@ -1,0 +1,205 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px 0;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.hero-illustration {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Navigation Styling */
+.navbar-nav .nav-link.active {
+  color: #667eea !important;
+  font-weight: bold !important;
+  border-bottom: 2px solid #667eea;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #667eea !important;
+}
+
+/* Student Card Styling */
+.student-card {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.student-card .card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-outline-primary {
+  border-color: #667eea;
+  color: #667eea;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #667eea;
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+/* Form Styling */
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-control.is-valid:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}
+
+.form-control.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Progress Bar Styling */
+.progress {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-header {
+  border-bottom: none;
+}
+
+/* Badge Styling */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
+}
+
+/* Alert Styling */
+.alert {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Form Label Styling */
+.form-label {
+  color: #495057;
+  font-weight: 600;
+}
+
+/* Input Styling */
+.form-control-lg {
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+/* Wizard Tab Styling */
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 0;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  border: none;
+  color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
+}
+
+.nav-tabs .nav-link.active {
+  border: none;
+  color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-bottom: 3px solid #667eea;
+}
+
+.nav-tabs .nav-link:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+/* Profile Builder Modal Styling */
+.profile-builder-modal .modal-content {
+  border-radius: 15px;
+  border: none;
+}
+
+.profile-builder-modal .modal-header {
+  border-bottom: none;
+}
+
+.profile-builder-modal .modal-footer {
+  border-top: none;
+}
+
+/* Tab Content Styling */
+.about-tab,
+.account-tab,
+.address-tab {
+  min-height: 400px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .card-body {
+    padding: 1.5rem !important;
+  }
+  
+  .nav-tabs {
+    flex-direction: column;
+  }
+  
+  .nav-tabs .nav-link {
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+}

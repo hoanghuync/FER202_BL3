@@ -135,3 +135,4 @@ npm start
 - **Error handling**: Fallback images cho avatar
 - **Smooth animations**: Hover effects và transitions
 - **Accessibility**: ARIA labels và semantic HTML
+
