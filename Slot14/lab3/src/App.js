@@ -18,19 +18,6 @@ function App() {
   // State cho Profile Builder Modal
   const [showProfileBuilder, setShowProfileBuilder] = useState(false);
 
-  // Đọc danh sách profile từ localStorage
-  const customProfiles = (() => {
-    try {
-      const data = localStorage.getItem('customStudentProfiles');
-      return data ? JSON.parse(data) : [];
-    } catch {
-      return [];
-    }
-  })();
-
-  // Gộp students với các profile nếu có
-  const allStudents = [...students, ...customProfiles];
-
   const handleNavbarSearch = (term) => {
     setNavbarSearchTerm(term);
     setCurrentPage('students');
@@ -85,7 +72,7 @@ function App() {
       {/* Content area với margin-top để tránh bị navbar che */}
       <div className="pt-5">
         {currentPage === 'home' && <HomePage />}
-        {currentPage === 'students' && <StudentsPage students={allStudents} />}
+        {currentPage === 'students' && <StudentsPage students={students} />}
         {currentPage === 'about' && <AboutPage />}
         
         {/* Hero section chỉ hiển thị ở trang home */}

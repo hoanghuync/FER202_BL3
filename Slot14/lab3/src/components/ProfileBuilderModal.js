@@ -178,23 +178,6 @@ const ProfileBuilderModal = ({ show, onHide }) => {
 
   const handleFinish = useCallback(() => {
     if (validateAddressTab(formData)) {
-      // Lấy danh sách students đã lưu từ localStorage
-      let savedStudents = [];
-      try {
-        const data = localStorage.getItem('customStudentProfiles');
-        if (data) savedStudents = JSON.parse(data);
-      } catch {}
-      // Tạo profile mới
-      const profile = {
-        id: Date.now(),
-        name: formData.firstName + ' ' + formData.lastName,
-        email: formData.email,
-        age: formData.dateOfBirth ? new Date().getFullYear() - new Date(formData.dateOfBirth).getFullYear() : '',
-        avatar: formData.avatarPreview || '',
-      };
-      // Thêm vào danh sách và lưu lại
-      savedStudents.push(profile);
-      localStorage.setItem('customStudentProfiles', JSON.stringify(savedStudents));
       setShowSummary(true);
       setShowToast(true);
     }

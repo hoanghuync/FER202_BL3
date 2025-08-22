@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import { CartContext } from "./CartContext";
 import PropTypes from "prop-types";
 
@@ -8,25 +9,27 @@ const DishesList = ({ dishes }) => {
   return (
     <div>
       <h2 className="mb-4">Danh sách món ăn</h2>
-      <div className="dishes row">
+      <Row className="dishes">
         {dishes.length === 0 ? (
-          <p className="text-danger">Không tìm thấy món ăn phù hợp.</p>
+          <Col>
+            <p className="text-danger">Không tìm thấy món ăn phù hợp.</p>
+          </Col>
         ) : (
           dishes.map((dish) => (
-            <div key={dish.id} className="dish-item col-md-6 col-lg-6 col-xl-3 mb-4">
-              <div className="card h-100 shadow-sm">
-                <img src={dish.image} alt={dish.name} className="card-img-top" />
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{dish.name}</h5>
-                  <p className="card-text">{dish.description}</p>
-                  <p className="card-text fw-bold">{`Price: $${parseFloat(dish.price).toFixed(2)}`}</p>
-                  <button onClick={() => addToCart(dish)} className="btn btn-success mt-auto">Add to Cart</button>
-                </div>
-              </div>
-            </div>
+            <Col key={dish.id} md={6} lg={6} xl={3} className="mb-4">
+              <Card className="h-100 shadow-sm">
+                <Card.Img variant="top" src={dish.image} alt={dish.name} />
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title>{dish.name}</Card.Title>
+                  <Card.Text>{dish.description}</Card.Text>
+                  <Card.Text className="fw-bold">{`Price: $${parseFloat(dish.price).toFixed(2)}`}</Card.Text>
+                  <Button onClick={() => addToCart(dish)} variant="success" className="mt-auto">Add to Cart</Button>
+                </Card.Body>
+              </Card>
+            </Col>
           ))
         )}
-      </div>
+      </Row>
     </div>
   );
 };

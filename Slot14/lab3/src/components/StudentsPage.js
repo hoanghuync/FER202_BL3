@@ -19,22 +19,9 @@ const StudentsPage = ({ students }) => {
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  // Nếu có profile từ localStorage, gộp vào danh sách students
-  let mergedStudents = students;
-  try {
-    const profile = localStorage.getItem('customStudentProfile');
-    if (profile) {
-      const parsed = JSON.parse(profile);
-      // Nếu chưa có trong danh sách (theo email), thì thêm vào
-      if (!students.some(s => s.email === parsed.email)) {
-        mergedStudents = [...students, parsed];
-      }
-    }
-  } catch {}
-
   // useMemo để tối ưu performance cho filtering và sorting
   const filteredAndSortedStudents = useMemo(() => {
-    let filtered = mergedStudents;
+    let filtered = students;
 
     // 1. Search filter (name or email)
     if (searchTerm.trim()) {
@@ -86,7 +73,7 @@ const StudentsPage = ({ students }) => {
     }
 
     return filtered;
-  }, [mergedStudents, searchTerm, ageRange, hasAvatar, sortBy]);
+  }, [students, searchTerm, ageRange, hasAvatar, sortBy]);
 
   // Handle view details
   const handleViewDetails = (student) => {
