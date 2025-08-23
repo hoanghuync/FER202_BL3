@@ -1,15 +1,31 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from "react";
-import { CartProvider } from "./components/CartContext";
-import DishesList from "./components/DishesList";
-import Cart from "./components/Cart";
-import "./styles.css";
-import dishes from "./data/dishes";
+import React, { useState, useEffect, createContext, useContext } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-  const [search, setSearch] = useState("");
+import NavBar from "./components/NavBar";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import CartPage from "./pages/CartPage";
+import FavouritesPage from "./pages/FavouritesPage";
+import AboutPage from "./pages/AboutPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
+import HomePage from "./pages/HomePage";
+import { ThemeProvider } from "./context/ThemeContext";
+import { AuthProvider } from "./context/AuthContext";
+import { FavouritesProvider } from "./context/FavouritesContext";
+import { CartProvider } from "./components/CartContext";
+import products from "./data/products";
+import "./styles.css";
+
+// Context cho dark mode
+export const DarkModeContext = createContext();
+
+export const useDarkMode = () => useContext(DarkModeContext);
+
+function DarkModeProvider({ children }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -19,46 +35,37 @@ function App() {
     }
   }, [darkMode]);
 
-  const filteredDishes = dishes.filter(
-    (dish) =>
-      dish.name.toLowerCase().includes(search.toLowerCase()) ||
-      dish.description.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const handleOrder = () => {
-    setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 2500);
-  };
-
   return (
-    <CartProvider>
-      <div className={`App${darkMode ? " dark-mode" : ""} container py-4`}>
-        <div className="header-bar d-flex align-items-center gap-3 mb-4">
-          <input
-            type="text"
-            placeholder="Tìm kiếm món ăn..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="form-control search-input"
-            style={{ maxWidth: 300 }}
-          />
-          <button onClick={() => setDarkMode((m) => !m)} className="btn btn-dark dark-btn">
-            {darkMode ? "Chế độ Sáng" : "Chế độ Tối"}
-          </button>
-        </div>
-        <div className="row">
-          <div className="col-lg-8">
-            <DishesList dishes={filteredDishes} />
-          </div>
-          <div className="col-lg-4">
-            <Cart onOrder={handleOrder} />
-            {showSuccess && (
-              <div className="order-success alert alert-success mt-3">Đơn hàng đã được xác nhận và thanh toán thành công!</div>
-            )}
-          </div>
-        </div>
-      </div>
-    </CartProvider>
+    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+      {children}
+    </DarkModeContext.Provider>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <ThemeProvider>
+        <AuthProvider>
+          <FavouritesProvider>
+            <CartProvider>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/products/:id" element={<ProductDetailsPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/favourites" element={<FavouritesPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+              </Routes>
+            </CartProvider>
+          </FavouritesProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 
