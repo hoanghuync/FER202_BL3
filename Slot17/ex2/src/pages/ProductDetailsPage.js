@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 import { Button, Card, Toast, ToastContainer } from "react-bootstrap";
 import { useFavourites } from "../context/FavouritesContext";
-import { CartContext } from "../components/CartContext";
+import { CartContext } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
 const ProductDetailsPage = () => {

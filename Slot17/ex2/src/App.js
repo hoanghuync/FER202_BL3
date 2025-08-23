@@ -15,7 +15,7 @@ import HomePage from "./pages/HomePage";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
 import { FavouritesProvider } from "./context/FavouritesContext";
-import { CartProvider } from "./components/CartContext";
+import { CartProvider } from "./context/CartContext";
 import products from "./data/products";
 import "./styles.css";
 

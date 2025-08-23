@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { CartContext } from "../components/CartContext";
+import { CartContext } from "../context/CartContext";
 import { useFavourites } from "../context/FavouritesContext";
 import { useAuth } from "../context/AuthContext";
 import { Navbar, Nav, Badge, Dropdown } from "react-bootstrap";

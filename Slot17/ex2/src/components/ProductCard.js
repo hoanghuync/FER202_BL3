@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Card, Button, Toast, ToastContainer } from "react-bootstrap";
 import { useFavourites } from "../context/FavouritesContext";
 import { Link, useNavigate } from "react-router-dom";
-import { CartContext } from "../components/CartContext";
+import { CartContext } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 
 const ProductCard = ({ product }) => {
