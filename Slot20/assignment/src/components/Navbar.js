@@ -15,9 +15,9 @@ const NavigationBar = ({ searchTerm, setSearchTerm, pendingSearchTerm, setPendin
   const location = useLocation();
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
-  useEffect(() => {
-    // ...existing code for wishlist fetch if needed...
-  }, [user]);
+  // useEffect(() => {
+  //   // ...existing code for wishlist fetch if needed...
+  // }, [user]);
 
   const wishlistCount = wishlist.length;
 

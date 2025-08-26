@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Alert, Card, InputGroup } from 'react-bootstrap';
 import { FaUser, FaLock } from 'react-icons/fa';
-import CustomToast from './CustomToast';
+import CustomToast from '../components/CustomToast';
 
 function LoginForm() {
   const [username, setUsername] = useState('');

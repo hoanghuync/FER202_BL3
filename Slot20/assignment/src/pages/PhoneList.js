@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, Button, Row, Col, Spinner, Badge } from 'react-bootstrap';
 import { FaStar } from 'react-icons/fa';
 import axios from 'axios';
-import CustomToast from './CustomToast';
+import CustomToast from '../components/CustomToast';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useWishlist } from '../context/WishlistContext';

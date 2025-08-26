@@ -5,7 +5,7 @@ import { Card, Container, Button } from 'react-bootstrap';
 import { FaArrowLeft, FaCartPlus, FaHeart } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
-import CustomToast from './CustomToast';
+import CustomToast from '../components/CustomToast';
 
 function PhoneDetail() {
   const { id } = useParams();

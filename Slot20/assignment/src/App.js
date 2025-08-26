@@ -3,17 +3,17 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
-import PhoneList from './components/PhoneList';
-import ManagePhone from './components/ManagePhone';
-import PhoneDetail from './components/PhoneDetail';
-import LoginForm from './components/LoginForm';
-import AccountDetail from './components/AccountDetail';
+import PhoneList from './pages/PhoneList';
+import ManagePhone from './pages/ManagePhone';
+import PhoneDetail from './pages/PhoneDetail';
+import LoginForm from './pages/LoginForm';
+import AccountDetail from './pages/AccountDetail';
 import Cart from './components/Cart';
 import NavigationBar from './components/Navbar';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
 import RegisterWizard from './components/RegisterWizard';
-import Wishlist from './components/Wishlist';
+import Wishlist from './pages/Wishlist';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function RequireAuth({ children }) {
@@ -54,7 +54,7 @@ function App() {
               sortOption={sortOption}
               handleSortChange={handleSortChange}
             />
-            {/* Chỉ trang home mới có header/carousel/footer */}
+            
             {location.pathname === '/home' && <Header />}
             <Routes>
               <Route path="/" element={<Navigate to="/home" />} />

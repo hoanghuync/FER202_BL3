@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Table, Card, Alert } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const { items: cartItems, clearCart, addToCart, removeFromCart, incQty, decQty } = useCart();
   const [ordered, setOrdered] = useState(false);
+  const navigate = useNavigate();
 
   const parsePrice = (price) => Number(price.toString().replace(/\D/g, ''));
   const total = cartItems.reduce((sum, item) => sum + parsePrice(item.currentPrice) * item.quantity, 0);
@@ -16,9 +18,11 @@ function Cart() {
 
   return (
     <div className="container py-5 d-flex justify-content-center">
+      
       <Card style={{ width: '100%', maxWidth: 800, borderRadius: 18, boxShadow: '0 4px 24px rgba(0,0,0,0.12)' }}>
         <Card.Body>
           <h2 className="fw-bold text-primary mb-4">Your Cart</h2>
+          
           {ordered ? (
             <Alert variant="success" className="text-center">
               <div className="fw-bold fs-4 mb-1">Thank you for your order!</div>
@@ -72,7 +76,12 @@ function Cart() {
                 >
                   Payment
                 </Button>
+          
+                
+                
+                
               )}
+              
             </>
           )}
         </Card.Body>
